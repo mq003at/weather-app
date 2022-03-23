@@ -20,7 +20,7 @@ const InfoCard = () => {
             <InputCard inputToInfo = { inputToInfo }/>
             <div className="info-card">
             <article>
-                <div class="container">
+                <div className="container">
                     <h3 id="city-name" style={{ textTransform: 'capitalize'}}>{ city }</h3>
                     <span id="temp">{ degree }</span ><span id='degree'>&#176;</span><span id="c">C</span>
                     <div id="ico"><img src={ `https://developer.accuweather.com/sites/default/files/${icon}-s.png` } alt="Light Rain" width="200" height="125"></img></div>

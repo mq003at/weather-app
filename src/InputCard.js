@@ -19,13 +19,7 @@ const InputCard = ({inputToInfo}) => {
         })
         .then(res => {return res.json()})
         .then(weather => {
-            console.log(weather);
-            console.log(weather[0].Temperature.Metric.Value);
-            console.log(weather[0].WeatherText);
-            console.log(weather[0].WeatherIcon);
-
             inputToInfo(city, weather[0].Temperature.Metric.Value, weather[0].WeatherIcon, weather[0].WeatherText)
-
         })
         .catch(error => {console.log(error)})
     }
