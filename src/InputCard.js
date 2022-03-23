@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 const InputCard = ({inputToInfo}) => {
     const [city, setCity] = useState('Kokkola');
     const key = '3GedPYOghUx6xKzgD8ktxz9SqPWrPO43';
-    const baseCity = 'http://dataservice.accuweather.com/locations/v1/cities/search';
-    const baseWeather = 'http://dataservice.accuweather.com/currentconditions/v1/';
+    const baseCity = 'https://dataservice.accuweather.com/locations/v1/cities/search';
+    const baseWeather = 'https://dataservice.accuweather.com/currentconditions/v1/';
     const [cityKey, setCityKey] = useState(12345);
     const [apiCity, setApiCity] = useState('');
     const [apiWeather, setApiWeather] = useState(cityKey);
