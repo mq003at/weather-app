@@ -9,24 +9,24 @@ const InputCard = ({inputToInfo}) => {
     const [apiCity, setApiCity] = useState('');
     const [apiWeather, setApiWeather] = useState(cityKey);
 
-    async function getApi(){
-        fetch(apiCity)
-        .then(res => {return res.json()})
-        .then(location => {
-            setCityKey(location[0].Key);
-            setApiWeather(`${ baseWeather }${ location[0].Key }?apikey=${ key }`);
-            return fetch(apiWeather);
-        })
-        .then(res => {return res.json()})
-        .then(weather => {
-            inputToInfo(city, weather[0].Temperature.Metric.Value, weather[0].WeatherIcon, weather[0].WeatherText)
-        })
-        .catch(error => {console.log(error)})
-    }
 
     useEffect(() => {
+        async function getApi(){
+            fetch(apiCity)
+            .then(res => {return res.json()})
+            .then(location => {
+                setCityKey(location[0].Key);
+                setApiWeather(`${ baseWeather }${ location[0].Key }?apikey=${ key }`);
+                return fetch(apiWeather);
+            })
+            .then(res => {return res.json()})
+            .then(weather => {
+                inputToInfo(city, weather[0].Temperature.Metric.Value, weather[0].WeatherIcon, weather[0].WeatherText)
+            })
+            .catch(error => {console.log(error)})
+        }    
         getApi();
-    }, [apiCity, apiWeather])
+    }, [apiCity, apiWeather, city, inputToInfo])
 
     const handleSubmit = (e) => {
         e.preventDefault();
